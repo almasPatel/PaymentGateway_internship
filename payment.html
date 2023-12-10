@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+/* Reset some default styles to ensure consistency across browsers */
+body, h1, h2, button, select {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #4285f4;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#donate-section, #payment-section {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+select, button {
+    margin-top: 10px;
+}
+
+/* Style the payment section */
+#payment-section {
+    display: none;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    main {
+        padding: 10px;
+    }
+}
+</style>
+<body>
+
+    <header>
+        <h1>Donate Now</h1>
+    </header>
+
+    <main>
+        <section id="donate-section">
+            <button id="donate-button">Donate</button>
+        </section>
+
+        <section id="payment-section" style="display:none;">
+            <h2>Choose Amount:</h2>
+            <select id="amount-select">
+                <option value="10">$10</option>
+                <option value="20">$20</option>
+                <option value="50">$50</option>
+                <option value="100">$100</option>
+            </select>
+
+            <h2>Select Payment Type:</h2>
+            <select id="payment-type-select">
+                <option value="credit-card">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="UPI">UPI</option>
+            </select>
+
+            <button id="submit-payment">Submit Payment</button>
+        </section>
+    </main>
+<script>
+	document.getElementById("donate-button").addEventListener("click", function() {
+    document.getElementById("donate-section").style.display = "none";
+    document.getElementById("payment-section").style.display = "block";
+});
+
+document.getElementById("submit-payment").addEventListener("click", function() {
+    // Handle payment processing here (using a sandbox/testing account)
+
+    // Simulate payment success
+    const amount = document.getElementById("amount-select").value;
+    const paymentType = document.getElementById("payment-type-select").value;
+    
+    // Simulate invoice generation
+    const invoice = `Invoice\nAmount: $${amount}\nPayment Type: ${paymentType}`;
+
+    // Simulate sending an email
+    sendEmail(invoice);
+});
+
+function sendEmail(invoice) {
+    // Use a service like Email.js or a server-side solution to send emails
+    // Simulate success message
+    alert(`Payment Successful!\n${invoice}`);
+}
+</script>
+</body>
+</html>
